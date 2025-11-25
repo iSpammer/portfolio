@@ -25,9 +25,41 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f9fafb;
             --bg-accent: #eff6ff;
+            --bg-gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --bg-gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             --border-color: #e5e7eb;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --max-width: 1400px;
+        }
+
+        /* Smooth animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         body {
@@ -55,7 +87,7 @@
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: var(--max-width);
             margin: 0 auto;
             padding: 1rem 2rem;
             display: flex;
@@ -228,8 +260,9 @@
         /* Section Styling */
         section {
             padding: 5rem 2rem;
-            max-width: 1200px;
+            max-width: var(--max-width);
             margin: 0 auto;
+            animation: fadeIn 0.8s ease-out;
         }
 
         section h2 {
@@ -768,6 +801,92 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        /* Badges Section */
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .badge-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: scaleIn 0.5s ease-out;
+            border: 2px solid transparent;
+        }
+
+        .badge-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .badge-image {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            object-fit: contain;
+        }
+
+        .badge-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-issuer {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .badge-date {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Profile Image */
+        .profile-image-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            animation: scaleIn 1s ease-out;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Alternating Section Backgrounds */
+        .section-alt-1 {
+            background: linear-gradient(135deg, rgba(239, 246, 255, 0.6) 0%, rgba(249, 250, 251, 0.6) 100%);
+        }
+
+        .section-alt-2 {
+            background: linear-gradient(135deg, rgba(249, 250, 251, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%);
+        }
+
+        .section-alt-3 {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(239, 246, 255, 0.5) 100%);
+        }
     </style>
 </head>
 <body>
@@ -789,6 +908,7 @@
                 <li><a href="#freelance">Freelance</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#awards">Awards</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -852,9 +972,16 @@
     </section>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="section-alt-1">
         <h2>About Me</h2>
         <p class="section-subtitle">Bridging Industry Practice with Academic Excellence</p>
+
+        <!-- Profile Image - Upload your image to replace placeholder -->
+        <div class="profile-image-container">
+            <img src="profile.jpg" alt="Osama Hussien" class="profile-image"
+                 onerror="this.src='https://ui-avatars.com/api/?name=Osama+Hussien&size=200&background=2563eb&color=fff&bold=true'">
+        </div>
+
         <div class="about-content fade-in">
             <p>
                 I am a cybersecurity professional and academic researcher with a passion for solving complex security challenges at the
@@ -1351,6 +1478,177 @@
                     <span class="skill-tag">GNS3</span>
                     <span class="skill-tag">Enterprise Storage</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Badges Section -->
+    <section id="certifications" class="section-alt-2">
+        <h2>Certifications & Digital Badges</h2>
+        <p class="section-subtitle">Industry-Recognized Credentials</p>
+
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                View all my verified credentials and digital badges on Credly:
+            </p>
+            <a href="https://www.credly.com/users/ossama-akram/badges" target="_blank" rel="noopener noreferrer"
+               style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: #FF6B35; color: white;
+               border-radius: 0.5rem; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: var(--shadow);">
+                <i class="fas fa-award"></i> View All Badges on Credly
+            </a>
+        </div>
+
+        <div class="badges-grid">
+            <!-- AWS Certified Solutions Architect -->
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #FF9900 0%, #EC7211 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fab fa-aws" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">AWS Certified Solutions Architect – Associate</div>
+                <div class="badge-issuer">Amazon Web Services</div>
+                <div class="badge-date">Expires Oct 27, 2026</div>
+            </div>
+
+            <!-- AWS Cloud Practitioner -->
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #FF9900 0%, #EC7211 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fab fa-aws" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">AWS Certified Cloud Practitioner</div>
+                <div class="badge-issuer">Amazon Web Services</div>
+                <div class="badge-date">Expires Oct 27, 2026</div>
+            </div>
+
+            <!-- ISC2 Certified in Cybersecurity -->
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #0066CC 0%, #004488 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-shield-alt" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">Certified in Cybersecurity (CC)</div>
+                <div class="badge-issuer">ISC2</div>
+                <div class="badge-date">Expires Dec 31, 2025</div>
+            </div>
+
+            <!-- SAP Badges -->
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #0076D6 0%, #0052A3 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-certificate" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">Administrating SAP S/4HANA Cloud, Public Edition</div>
+                <div class="badge-issuer">SAP</div>
+                <div class="badge-date">Issued Mar 2024</div>
+            </div>
+
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #0076D6 0%, #0052A3 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-shield-halved" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">Introducing Cybersecurity</div>
+                <div class="badge-issuer">SAP</div>
+                <div class="badge-date">Issued Mar 2024</div>
+            </div>
+
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #0076D6 0%, #0052A3 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-cloud" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">Exploring SAP Business Technology Platform</div>
+                <div class="badge-issuer">SAP</div>
+                <div class="badge-date">Issued Mar 2024</div>
+            </div>
+
+            <!-- AWS Training Badges -->
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #FF9900 0%, #EC7211 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-trophy" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">AWS Cloud Quest: Solutions Architect</div>
+                <div class="badge-issuer">AWS Training and Certification</div>
+                <div class="badge-date">Issued Sep 2023</div>
+            </div>
+
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #FF9900 0%, #EC7211 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-gamepad" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">AWS Cloud Quest: Cloud Practitioner</div>
+                <div class="badge-issuer">AWS Training and Certification</div>
+                <div class="badge-date">Issued Jun 2023</div>
+            </div>
+
+            <!-- Cisco Badges -->
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #1BA0D7 0%, #0D6EAD 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-network-wired" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">Networking Devices and Initial Configuration</div>
+                <div class="badge-issuer">Cisco</div>
+                <div class="badge-date">Issued Oct 2022</div>
+            </div>
+
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #1BA0D7 0%, #0D6EAD 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-server" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">Networking Basics</div>
+                <div class="badge-issuer">Cisco</div>
+                <div class="badge-date">Issued Oct 2022</div>
+            </div>
+
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #1BA0D7 0%, #0D6EAD 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-lock" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">Introduction to Cybersecurity</div>
+                <div class="badge-issuer">Cisco</div>
+                <div class="badge-date">Issued Oct 2022</div>
+            </div>
+
+            <!-- IBM Badges -->
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #0F62FE 0%, #0043CE 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-robot" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">IBM AI Associate for All IBMers</div>
+                <div class="badge-issuer">IBM</div>
+                <div class="badge-date">Issued Dec 2021</div>
+            </div>
+
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #0F62FE 0%, #0043CE 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-users" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">IBM Virtual Collaborator</div>
+                <div class="badge-issuer">IBM</div>
+                <div class="badge-date">Issued Dec 2021</div>
+            </div>
+
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #0F62FE 0%, #0043CE 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-terminal" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">AIX Systems Administrator - Experienced</div>
+                <div class="badge-issuer">IBM</div>
+                <div class="badge-date">Issued Nov 2021</div>
+            </div>
+
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #0F62FE 0%, #0043CE 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-cloud-arrow-up" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">IBM Cloud Essentials</div>
+                <div class="badge-issuer">IBM</div>
+                <div class="badge-date">Issued Sep 2021</div>
+            </div>
+
+            <!-- Pearson Badge -->
+            <div class="badge-card fade-in">
+                <div class="badge-image" style="background: linear-gradient(135deg, #FF671F 0%, #D84315 100%); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+                    <i class="fas fa-briefcase" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <div class="badge-title">Pearson Intern</div>
+                <div class="badge-issuer">Pearson UK</div>
+                <div class="badge-date">Issued Aug 2023</div>
             </div>
         </div>
     </section>
