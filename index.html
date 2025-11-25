@@ -216,6 +216,35 @@
             letter-spacing: 1px;
         }
 
+        .metric-source {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+            font-weight: 500;
+        }
+
+        .metrics-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .metrics-row {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .metrics-source-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
         .hero-cta {
             display: flex;
             gap: 1rem;
@@ -928,22 +957,49 @@
                 IT Consultant | AWS & (ISC)² Certified | Master's Student at Northumbria University
             </p>
 
-            <div class="research-metrics">
-                <div class="metric">
-                    <div class="metric-value">63</div>
-                    <div class="metric-label">Citations</div>
+            <div class="metrics-container">
+                <div>
+                    <div class="metrics-source-label">
+                        <i class="fas fa-graduation-cap"></i> Google Scholar Metrics
+                    </div>
+                    <div class="metrics-row">
+                        <div class="metric">
+                            <div class="metric-value">53</div>
+                            <div class="metric-label">Citations</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">4</div>
+                            <div class="metric-label">h-index</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">2</div>
+                            <div class="metric-label">i10-index</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="metric">
-                    <div class="metric-value">6</div>
-                    <div class="metric-label">h-index</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">57.2</div>
-                    <div class="metric-label">Research Interest Score</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">15+</div>
-                    <div class="metric-label">Publications</div>
+
+                <div>
+                    <div class="metrics-source-label">
+                        <i class="fas fa-flask"></i> ResearchGate Metrics
+                    </div>
+                    <div class="metrics-row">
+                        <div class="metric">
+                            <div class="metric-value">63</div>
+                            <div class="metric-label">Citations</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">6</div>
+                            <div class="metric-label">h-index</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">57.2</div>
+                            <div class="metric-label">RG Score</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">15+</div>
+                            <div class="metric-label">Publications</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
