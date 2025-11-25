@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Osama Akram Amin Metwally Hussien - Cybersecurity Professional & Academic Researcher specializing in Applied Cryptography, Post-Quantum Security, and Network Engineering">
+    <meta name="keywords" content="Cybersecurity, Post-Quantum Cryptography, Network Security, AWS Solutions Architect, Researcher">
+    <meta name="author" content="Osama Hussien">
+    <title>Osama Hussien | Cybersecurity Professional & Researcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-accent: #eff6ff;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-secondary) 100%);
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -250px;
+            right: -250px;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -200px;
+            left: -200px;
+            animation: float 15s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 50px) scale(1.1); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .research-metrics {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-accent);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .certifications {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cert-badge {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            width: calc(50% - 2rem);
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: auto;
+            padding-left: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            text-align: right;
+            padding-right: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+            top: 0;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            left: -10px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            right: -10px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Publications Grid */
+        .publications-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .publication-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .publication-card:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .publication-type {
+            display: inline-block;
+            background: var(--bg-accent);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .publication-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .publication-authors {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-venue {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-accent);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .award-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-card::before {
+            content: '\f091';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            right: -1rem;
+            bottom: -1rem;
+        }
+
+        .award-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-date {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .award-description {
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .education-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+        }
+
+        .education-degree {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-university {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-grade {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            min-width: 250px;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .research-metrics {
+                gap: 1.5rem;
+            }
+
+            .metric-value {
+                font-size: 2rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 3rem !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-item::before {
+                left: -10px !important;
+            }
+
+            .skills-container,
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--bg-secondary);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">OH</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Osama Akram Amin Metwally Hussien</h1>
+            <h2>Cybersecurity Professional & Academic Researcher</h2>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; margin: 1rem 0;">
+                IT Consultant | AWS & (ISC)² Certified | Master's Student at Northumbria University
+            </p>
+
+            <div class="research-metrics">
+                <div class="metric">
+                    <div class="metric-value">63</div>
+                    <div class="metric-label">Citations</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">6</div>
+                    <div class="metric-label">h-index</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">57.2</div>
+                    <div class="metric-label">Research Interest Score</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">15+</div>
+                    <div class="metric-label">Publications</div>
+                </div>
+            </div>
+
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+                <a href="#publications" class="btn btn-secondary">
+                    <i class="fas fa-book"></i> View Publications
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p class="section-subtitle">Bridging Industry Practice with Academic Excellence</p>
+        <div class="about-content fade-in">
+            <p>
+                I am an accomplished cybersecurity professional and academic researcher specializing in applied cryptography,
+                post-quantum security, and network engineering. Currently serving as Senior IT Operations Technician and SAP Technical
+                Consultant at EPI-USE Labs, I bring extensive experience from Pearson PLC, The Egyptian Banks Company, and IBM.
+            </p>
+            <p>
+                I hold an MSc in Cybersecurity with distinction from Northumbria University London and a BSc in Information Engineering
+                & Technology from The German University in Cairo. As a prolific researcher, I have authored 15+ publications in high-impact
+                Springer and MDPI journals, co-edited a Springer book on Cybersecurity & AI, and achieved 63 citations with an h-index of 6.
+            </p>
+            <p>
+                Notable achievements include winning the ISACA London Cybersecurity Competition representing Northumbria University and
+                serving as an active council member of ISACA and IET. My expertise spans cloud architecture, advanced cryptography,
+                blockchain technology, AI/ML implementation, and enterprise SAP solutions.
+            </p>
+
+            <div class="certifications">
+                <span class="cert-badge"><i class="fab fa-aws"></i> AWS Solutions Architect</span>
+                <span class="cert-badge"><i class="fas fa-shield-alt"></i> (ISC)² Certified</span>
+                <span class="cert-badge"><i class="fas fa-network-wired"></i> CCNA Certified</span>
+                <span class="cert-badge"><i class="fab fa-redhat"></i> RHCSA Certified</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Interests -->
+    <section id="research" style="background: var(--bg-secondary);">
+        <h2>Research Interests</h2>
+        <p class="section-subtitle">Advancing the Frontiers of Cybersecurity</p>
+        <div class="skills-container fade-in">
+            <div class="skill-category">
+                <h3><i class="fas fa-lock"></i> Cryptography & Security</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">Applied Cryptography</span>
+                    <span class="skill-tag">Post-Quantum Security</span>
+                    <span class="skill-tag">Quantum-Resistant Protocols</span>
+                    <span class="skill-tag">Blockchain Technology</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-network-wired"></i> Network Security</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">5G/6G Security</span>
+                    <span class="skill-tag">Space Communications</span>
+                    <span class="skill-tag">IoT Security</span>
+                    <span class="skill-tag">Network Protocols</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-brain"></i> AI & Ethics</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">AI Ethics</span>
+                    <span class="skill-tag">AI Governance</span>
+                    <span class="skill-tag">Machine Learning Security</span>
+                    <span class="skill-tag">AI-driven Cybersecurity</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <p class="section-subtitle">Building Secure Solutions Across Industries</p>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">Aug 2023 - Present</div>
+                    <div class="timeline-title">Senior IT Operations Technician / SAP Technical Consultant</div>
+                    <div class="timeline-company">EPI-USE Labs, Manchester, UK</div>
+                    <div class="timeline-description">
+                        Lead technical consultant providing specialized expertise to multinational clients. Architect and implement
+                        enterprise-grade SAP solutions, developing custom ABAP programs. Spearhead operational technical support
+                        initiatives, optimizing client systems for maximum ROI and performance.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">Aug 2023 - Jun 2024</div>
+                    <div class="timeline-title">Principal Security Researcher</div>
+                    <div class="timeline-company">Northumbria University London</div>
+                    <div class="timeline-description">
+                        Led advanced research in post-quantum cryptography for satellite and UAV communications. Developed novel TCP
+                        protocol implementation resistant to quantum computing attacks. Published extensively in high-impact Springer
+                        and MDPI journals on 5G/6G security.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">Jun 2023 - Aug 2023</div>
+                    <div class="timeline-title">Senior Security Analyst</div>
+                    <div class="timeline-company">Pearson PLC, London, UK</div>
+                    <div class="timeline-description">
+                        Led PCI DSS Version 4.0 compliance transformation initiative. Conducted comprehensive third-party vendor risk
+                        assessments. Managed enterprise vulnerability assessment programs using Qualys, reducing security exposure by 40%.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">Jan 2023 - Jun 2023</div>
+                    <div class="timeline-title">Research Fellow - IoT Security & Blockchain</div>
+                    <div class="timeline-company">Northumbria University London (Funded Project)</div>
+                    <div class="timeline-description">
+                        Architected cost-effective IoT smartwatch with ESP32 microcontroller for healthcare applications. Implemented
+                        Haraka v2 Hash algorithm-based blockchain as decentralized PKI infrastructure. Deployed machine learning models
+                        on edge devices for real-time health diagnosis.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">Nov 2022 - Jun 2023</div>
+                    <div class="timeline-title">Senior Network Security Specialist</div>
+                    <div class="timeline-company">Holland Bazaar Ltd, London & Peterborough, UK</div>
+                    <div class="timeline-description">
+                        Architected and maintained enterprise Windows Active Directory infrastructure serving 200+ users. Designed and
+                        implemented secure VPN solutions connecting multiple branches. Managed Office 365 enterprise services and
+                        advanced threat protection systems.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">May 2022 - Aug 2022</div>
+                    <div class="timeline-title">Cybersecurity Analyst</div>
+                    <div class="timeline-company">The Egyptian Banks Company, Cairo, Egypt</div>
+                    <div class="timeline-description">
+                        Conducted comprehensive security audits for critical banking infrastructure. Managed enterprise firewall
+                        configurations (FortiGate, Cisco ASA, Palo Alto). Performed vulnerability assessments ensuring PCI-DSS
+                        compliance for payment systems.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">Sep 2021 - Mar 2022</div>
+                    <div class="timeline-title">Technical Support Engineer</div>
+                    <div class="timeline-company">IBM, Cairo, Egypt</div>
+                    <div class="timeline-description">
+                        Provided expert-level technical support for IBM Spectrum Protect Server solutions. Diagnosed and resolved
+                        complex fault scenarios using advanced software diagnostics. Maintained 99.9% client satisfaction rating.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" style="background: var(--bg-secondary);">
+        <h2>Selected Publications</h2>
+        <p class="section-subtitle">Contributing to Cutting-Edge Research</p>
+        <div class="publications-grid">
+            <div class="publication-card fade-in">
+                <span class="publication-type">EDITED BOOK</span>
+                <div class="publication-title">Cybersecurity and Artificial Intelligence: Transformational Strategies and Disruptive Innovation</div>
+                <div class="publication-authors">Jahankhani, H., Bowen, G., Sharif, S., Hussien, O.</div>
+                <div class="publication-venue">Springer (Advanced Sciences and Technologies for Security Applications Series), 2024</div>
+            </div>
+
+            <div class="publication-card fade-in">
+                <span class="publication-type">JOURNAL (In Press)</span>
+                <div class="publication-title">The Design and Implementation of Post-Quantum Secure TCP Protocol (OssLayer)</div>
+                <div class="publication-authors">Jahankhani, H., Hussien, O.</div>
+                <div class="publication-venue">International Journal of Electronic Security and Digital Forensics, Accepted October 2024</div>
+            </div>
+
+            <div class="publication-card fade-in">
+                <span class="publication-type">JOURNAL</span>
+                <div class="publication-title">Predicting the Impact of Data Poisoning Attacks in Blockchain-Enabled Supply Chain Networks</div>
+                <div class="publication-authors">Butt, U., Hussien, O., Hasanaj, K., Shaalan, K., Hassan, B., al-Khateeb, H.</div>
+                <div class="publication-venue">Algorithms Journal, MDPI, 2023. DOI: 10.3390/a16120549</div>
+            </div>
+
+            <div class="publication-card fade-in">
+                <span class="publication-type">BOOK CHAPTER</span>
+                <div class="publication-title">Secure and Resilient IP-Satellite Communication Infrastructure</div>
+                <div class="publication-authors">Hasanaj, K., Hussien, O., Jahankhani, H.</div>
+                <div class="publication-venue">Space Law and Policy Series, Springer Cham, 2024. DOI: 10.1007/978-3-031-62228-1_5</div>
+            </div>
+
+            <div class="publication-card fade-in">
+                <span class="publication-type">BOOK CHAPTER</span>
+                <div class="publication-title">Strengthening Security Mechanisms of Satellites and UAVs Against Quantum Computer Attacks</div>
+                <div class="publication-authors">Hussien, O., Arachchige, I., Jahankhani, H.</div>
+                <div class="publication-venue">Advanced Sciences and Technologies for Security Applications, Springer Cham, 2024. DOI: 10.1007/978-3-031-47594-8_1</div>
+            </div>
+
+            <div class="publication-card fade-in">
+                <span class="publication-type">CONFERENCE</span>
+                <div class="publication-title">DTLS-Trust: A Blockchain-Enhanced Security Framework with AI Based Trust Scoring for UDP Communications</div>
+                <div class="publication-authors">Hussien, O. et al.</div>
+                <div class="publication-venue">IRASET'2025 Conference, Fez, Morocco (Accepted - IEEE Xplore & Scopus)</div>
+            </div>
+
+            <div class="publication-card fade-in">
+                <span class="publication-type">BOOK CHAPTER</span>
+                <div class="publication-title">Approaches and Methods for Regulation of Security Risks in 5G and 6G</div>
+                <div class="publication-authors">Jahankhani, H., Kendzierskyj, S., Hussien, O.</div>
+                <div class="publication-venue">Advanced Sciences and Technologies for Security Applications, Springer Cham, 2023. DOI: 10.1007/978-3-031-33631-7_2</div>
+            </div>
+
+            <div class="publication-card fade-in">
+                <span class="publication-type">THESIS</span>
+                <div class="publication-title">Enhancing Network Security through Post-Quantum Secure Network Protocol</div>
+                <div class="publication-authors">Hussien, O.</div>
+                <div class="publication-venue">MSc Dissertation, Northumbria University London Campus, UK, 2024 (Grade: Distinction)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <p class="section-subtitle">Comprehensive Technical Expertise</p>
+        <div class="skills-container">
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-code"></i> Programming & Development</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Dart</span>
+                    <span class="skill-tag">ABAP</span>
+                    <span class="skill-tag">MIPS Assembly</span>
+                    <span class="skill-tag">SDLC</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><i class="fab fa-aws"></i> Cloud & DevOps</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">AWS Solutions Architect</span>
+                    <span class="skill-tag">Microsoft Azure</span>
+                    <span class="skill-tag">Firebase</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">Ansible</span>
+                    <span class="skill-tag">CloudFormation</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-shield-alt"></i> Cybersecurity Frameworks</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">PCI-DSS</span>
+                    <span class="skill-tag">NIST SP800-53</span>
+                    <span class="skill-tag">ISO27001</span>
+                    <span class="skill-tag">MITRE ATT&CK</span>
+                    <span class="skill-tag">CVSS</span>
+                    <span class="skill-tag">CIS Benchmarks</span>
+                    <span class="skill-tag">OWASP</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-network-wired"></i> Network & Security</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">CCNA</span>
+                    <span class="skill-tag">OSPF</span>
+                    <span class="skill-tag">BGP</span>
+                    <span class="skill-tag">VPN Technologies</span>
+                    <span class="skill-tag">Cisco Firewalls</span>
+                    <span class="skill-tag">FortiGate</span>
+                    <span class="skill-tag">Palo Alto</span>
+                    <span class="skill-tag">Wireshark</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-database"></i> Database Technologies</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">MariaDB</span>
+                    <span class="skill-tag">Amazon Aurora</span>
+                    <span class="skill-tag">Database Security</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-brain"></i> Emerging Technologies</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">AI/ML</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">Quantum Computing</span>
+                    <span class="skill-tag">IoT Security</span>
+                    <span class="skill-tag">Blockchain</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-tools"></i> Security Tools</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">Tenable Nessus</span>
+                    <span class="skill-tag">Qualys</span>
+                    <span class="skill-tag">Digital Forensics</span>
+                    <span class="skill-tag">Penetration Testing</span>
+                    <span class="skill-tag">Threat Intelligence</span>
+                    <span class="skill-tag">Incident Response</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-server"></i> Infrastructure</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">VMware vSphere</span>
+                    <span class="skill-tag">ESXi</span>
+                    <span class="skill-tag">Hypervisor Tech</span>
+                    <span class="skill-tag">GNS3</span>
+                    <span class="skill-tag">Enterprise Storage</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="background: var(--bg-secondary);">
+        <h2>Education</h2>
+        <p class="section-subtitle">Academic Excellence in Cybersecurity & Engineering</p>
+        <div class="education-grid">
+            <div class="education-card fade-in">
+                <div class="education-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <div class="education-degree">Master of Science in Cybersecurity & Advanced Practice</div>
+                    <div class="education-university">Northumbria University London Campus</div>
+                    <div class="education-date">Sep 2022 - Jun 2024</div>
+                    <div class="education-grade">Grade: 1st Class Honours (Distinction), First Year: 83%</div>
+                    <div class="education-description" style="margin-top: 1rem; color: var(--text-secondary);">
+                        Dissertation: "Enhancing Network Security through the Design and Implementation of Post-Quantum
+                        Secure Network Protocol" - Advanced research in post-quantum cryptography, satellite security,
+                        and AI-driven cybersecurity
+                    </div>
+                </div>
+            </div>
+
+            <div class="education-card fade-in">
+                <div class="education-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <div class="education-degree">Bachelor of Science in Information Engineering & Technology</div>
+                    <div class="education-university">The German University in Cairo</div>
+                    <div class="education-date">Sep 2016 - Aug 2021</div>
+                    <div class="education-grade">Grade: 1st Class Honours (Distinction), GPA: 2.28/0.7 German Scale</div>
+                    <div class="education-description" style="margin-top: 1rem; color: var(--text-secondary);">
+                        Specialization: Network Engineering - Thesis: "Smart City - Car Movement Analysis using Machine
+                        Learning Model" (Grade: Excellent) - Specialized in network protocols, cybersecurity, and machine
+                        learning applications
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards">
+        <h2>Honors & Awards</h2>
+        <p class="section-subtitle">Recognition for Excellence</p>
+        <div class="awards-grid">
+            <div class="award-card fade-in">
+                <div class="award-title">ISACA London Cybersecurity Competition - Champion</div>
+                <div class="award-date">February 2024 | ISACA London Chapter</div>
+                <div class="award-description">
+                    First Place winner representing Northumbria University against 8 teams from 4 prestigious UK universities.
+                    Led comprehensive cyber-attack case study analysis of Capita LTD breach. Presented findings at Queen Elizabeth II
+                    Centre to industry leaders and cybersecurity executives.
+                </div>
+            </div>
+
+            <div class="award-card fade-in">
+                <div class="award-title">NCSC Innovators Challenge - University Representative</div>
+                <div class="award-date">March 2023 | UK National Cyber Security Centre</div>
+                <div class="award-description">
+                    Selected as sole representative for Northumbria University in prestigious 3-day national cybersecurity innovation
+                    challenge. Competed against top students from 15+ leading UK universities. Developed novel Space Governance
+                    Framework addressing critical issues in satellite and space security infrastructure.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Get In Touch</h2>
+        <p class="section-subtitle">Let's Connect and Collaborate</p>
+        <div class="contact-links">
+            <a href="mailto:ispamossama@gmail.com" class="contact-link fade-in">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info">
+                    <h4>Email</h4>
+                    <p>ispamossama@gmail.com</p>
+                </div>
+            </a>
+
+            <a href="tel:+447424906642" class="contact-link fade-in">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-info">
+                    <h4>Phone</h4>
+                    <p>+44 7424 906 642</p>
+                </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/ossama-akram-692364b5/" target="_blank" rel="noopener noreferrer" class="contact-link fade-in">
+                <div class="contact-icon">
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <div class="contact-info">
+                    <h4>LinkedIn</h4>
+                    <p>Connect with me</p>
+                </div>
+            </a>
+
+            <a href="https://github.com/ispammer" target="_blank" rel="noopener noreferrer" class="contact-link fade-in">
+                <div class="contact-icon">
+                    <i class="fab fa-github"></i>
+                </div>
+                <div class="contact-info">
+                    <h4>GitHub</h4>
+                    <p>View my projects</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/ossama-akram-692364b5/" target="_blank" rel="noopener noreferrer" class="social-link">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/ispammer" target="_blank" rel="noopener noreferrer" class="social-link">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:ispamossama@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy; 2025 Osama Hussien. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+            Cybersecurity Professional | Academic Researcher | AWS & (ISC)² Certified
+        </p>
+    </footer>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hide');
+            }, 1000);
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.getElementById('navbar').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Dynamic year in footer
+        document.querySelector('footer p').innerHTML =
+            `&copy; ${new Date().getFullYear()} Osama Hussien. All rights reserved.`;
+
+        // Active navigation link highlighting
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            const navHeight = navbar.offsetHeight;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navHeight - 100;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop &&
+                    window.pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add animation delay to timeline items
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Add hover effect to publication cards
+        document.querySelectorAll('.publication-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.borderLeftWidth = '8px';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.borderLeftWidth = '4px';
+            });
+        });
+
+        // Console easter egg
+        console.log('%cWelcome to Osama Hussien\'s Portfolio!', 'color: #2563eb; font-size: 20px; font-weight: bold;');
+        console.log('%cInterested in cybersecurity? Let\'s connect!', 'color: #6b7280; font-size: 14px;');
+        console.log('%cEmail: ispamossama@gmail.com', 'color: #3b82f6; font-size: 12px;');
+    </script>
+</body>
+</html>
